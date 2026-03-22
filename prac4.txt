@@ -1,11 +1,18 @@
-PRACTICAL 4 — BUILD SCHEDULING
+========================
+PRACTICAL 4A — PIPELINE SCHEDULING
+========================
 
-New Item → Pipeline
+New Item → Name: prac4a → Select Pipeline → OK
 
-Triggers → Build periodically
-CRON: * * * * *
+Scroll → Build Triggers → Tick:
+Build periodically
 
-Pipeline Script:
+Enter CRON:
+* * * * *
+
+Scroll → Pipeline → Definition: Pipeline script
+
+Paste:
 
 pipeline {
  agent any
@@ -23,4 +30,81 @@ pipeline {
  }
 }
 
-Save → Build Now
+Click Save
+
+Click Build Now (first manual run required)
+
+Check:
+Build → Artifacts → demo.txt
+
+
+========================
+PRACTICAL 4B — FREESTYLE SCHEDULING
+========================
+
+New Item → Name: prac4b → Select Freestyle Project → OK
+
+Scroll → Build Triggers → Tick:
+Build periodically
+
+Enter CRON:
+* * * * *
+
+Scroll → Build Steps → Add:
+Execute Windows Batch
+
+Paste:
+
+echo This job is running automatically
+date /T
+time /T
+
+Click Save
+
+Click Build Now
+
+Observe job running every minute
+
+
+========================
+PRACTICAL 4C — PARAMETERIZED PIPELINE
+========================
+
+New Item → Name: prac4c → Select Pipeline → OK
+
+Tick:
+This project is parameterized
+
+Click Add Parameter → String Parameter
+
+Name: USERNAME  
+Default Value: Student  
+Description: Enter your name
+
+Scroll → Pipeline → Paste:
+
+pipeline {
+ agent any
+
+ parameters {
+  string(name: 'USERNAME', defaultValue: 'Student')
+ }
+
+ stages {
+  stage('Greeting') {
+   steps {
+    echo "Hello ${params.USERNAME}"
+    bat "echo Hello ${params.USERNAME} > message.txt"
+   }
+  }
+ }
+}
+
+Click Save
+
+Click Build with Parameters
+
+Enter name → Run
+
+Check:
+Artifacts → message.txt
