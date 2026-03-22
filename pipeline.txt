@@ -1,0 +1,32 @@
+pipeline {
+agent any
+stages {
+stage('Clone Repository') {
+            steps {
+                git branch: 'main', url: 'https://github.com/RahilGala/jenkins'
+            }
+        }
+stage('Build') {
+            steps {
+                echo "Running Build Steps..."
+                bat 'dir'
+            }
+        }
+stage('Unit Test') {
+            steps {
+                echo "Running Unit Test..."
+                bat 'dir'
+            }
+        }
+stage('Integration Test') {
+            steps {
+                echo "Running Integration Test..."
+                bat 'echo Test passed successfully'
+            }
+        }
+    }
+post {
+        success { echo "Pipeline completed successfully" }
+        failure { echo "Pipeline failed" }
+    }
+}
