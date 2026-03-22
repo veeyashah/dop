@@ -1,14 +1,22 @@
+========================
 PRACTICAL 1 — JENKINS FREESTYLE
+========================
 
-Open: http://localhost:8080
+Open Browser → http://localhost:8080 → Login
 
-New Item → Enter name → Freestyle Project → OK
+Click: New Item
+Enter Name: prac1
+Select: Freestyle Project → OK
 
-Source Code Management → Git
-Paste Repo URL
-Branch: */main
+Scroll → Build Steps → Add:
+Execute Windows Batch
 
-Build Steps → Execute Windows Batch
+Paste:
 echo Hello Jenkins
 
-Save → Build Now → Console Output
+Click Save
+
+Click Build Now
+
+Check:
+Console Output → Finished: SUCCESS

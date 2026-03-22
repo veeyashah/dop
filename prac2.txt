@@ -1,14 +1,21 @@
+========================
 PRACTICAL 2 — JENKINS WITH GIT
+========================
 
-New Item → Freestyle Project
+New Item → Name: prac2 → Freestyle → OK
 
-Source Code Management → Git
-Repo URL: (your repo)
-Branch: */main
+Scroll → Source Code Management → Select Git
 
-Save → Build Now
+Paste:
+Repository URL: <your github repo>
 
-ERROR FIX:
-If "Couldn't find revision"
-→ Check branch name
-→ Repo must have commit
+Branch:
+*/main   (or */master if repo uses master)
+
+Click Save
+
+Click Build Now
+
+If ERROR: Couldn't find revision
+→ Ensure repo has at least 1 commit
+→ Ensure correct branch name

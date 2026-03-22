@@ -1,17 +1,57 @@
-PRACTICAL 5 — JENKINS + MAVEN
+========================
+PRACTICAL 5A — JENKINS MAVEN BUILD
+========================
+
+(Ensure Maven plugin installed)
 
 Manage Jenkins → Tools → Add Maven
+Name: Maven
+Install Automatically ✓
+Save
 
-New Item → Maven Project
+New Item → Name: prac5a → Maven Project → OK
 
 Source Code Management → Git
-Repo URL
+Repo URL: <your maven repo>
 Branch: */main
 
-Goals:
+Build → Goals:
 clean test package
 
-Post Build:
-Archive target/*.jar
+Post-build → Archive artifacts:
+target/*.jar
 
-Build Now
+Save → Build Now
+
+Check:
+Console → BUILD SUCCESS
+Artifacts → jar file
+
+
+========================
+PRACTICAL 5B — JENKINS ANT BUILD
+========================
+
+(Ensure Ant plugin installed)
+
+Manage Jenkins → Tools → Add Ant
+Name: Ant
+Install Automatically ✓
+Save
+
+New Item → Name: prac5b → Freestyle Project → OK
+
+Source Code Management → Git
+Repo URL: <your ant project repo>
+Branch: */main
+
+Build → Add Step:
+Invoke Ant
+
+Targets:
+clean jar
+
+Post-build → Archive artifacts:
+dist/*.jar
+
+Save → Build Now
