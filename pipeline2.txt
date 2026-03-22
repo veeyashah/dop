@@ -1,0 +1,15 @@
+pipeline {
+  agent any
+  stages {
+    stage('Create File') {
+      steps {
+        bat 'echo Hello Jenkins > demo.txt'
+      }
+    }
+    stage('Archive File') {
+      steps {
+        archiveArtifacts 'demo.txt'
+      }
+    }
+  }
+}

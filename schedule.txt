@@ -1,0 +1,5 @@
+Schedule: 
+Every minute: * * * * * 
+Every 5 minutes: H/5 * * * * 
+Everyday at 10 AM: 0 10 * * * 
+Every hour: H * * * *

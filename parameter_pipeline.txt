@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+parameters {
+        string(name: 'USERNAME', defaultValue: 'Student', description: 'Enter your name')
+    }
+triggers { cron('H/1 * * * *') }
+    stages {
+        stage('Greeting') {
+            steps {
+                echo "Hello, ${params.USERNAME}!"
+                bat "echo Hello ${params.USERNAME} > message.txt"
+            }
+        }
+        stage('Archive') {
+            steps { archiveArtifacts artifacts: 'message.txt' }
+        }
+    }
+    post { success { echo "Build completed successfully!" } }
+}
