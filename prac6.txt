@@ -1,0 +1,13 @@
+PRACTICAL 6 — DOCKER COMMANDS
+
+docker --version
+docker info
+docker pull hello-world
+docker run hello-world
+
+Run web container:
+docker run -d -p 8082:80 nginx
+
+Check:
+docker ps
+docker images

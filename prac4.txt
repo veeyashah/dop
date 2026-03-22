@@ -1,0 +1,26 @@
+PRACTICAL 4 — BUILD SCHEDULING
+
+New Item → Pipeline
+
+Triggers → Build periodically
+CRON: * * * * *
+
+Pipeline Script:
+
+pipeline {
+ agent any
+ stages {
+  stage('Create File') {
+   steps {
+    bat 'echo Hello Jenkins > demo.txt'
+   }
+  }
+  stage('Archive File') {
+   steps {
+    archiveArtifacts 'demo.txt'
+   }
+  }
+ }
+}
+
+Save → Build Now

@@ -1,0 +1,17 @@
+PRACTICAL 5 — JENKINS + MAVEN
+
+Manage Jenkins → Tools → Add Maven
+
+New Item → Maven Project
+
+Source Code Management → Git
+Repo URL
+Branch: */main
+
+Goals:
+clean test package
+
+Post Build:
+Archive target/*.jar
+
+Build Now

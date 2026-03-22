@@ -1,0 +1,14 @@
+PRACTICAL 2 — JENKINS WITH GIT
+
+New Item → Freestyle Project
+
+Source Code Management → Git
+Repo URL: (your repo)
+Branch: */main
+
+Save → Build Now
+
+ERROR FIX:
+If "Couldn't find revision"
+→ Check branch name
+→ Repo must have commit

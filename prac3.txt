@@ -1,0 +1,25 @@
+PRACTICAL 3 — DECLARATIVE PIPELINE
+
+New Item → Pipeline
+
+Pipeline Script:
+
+pipeline {
+ agent any
+ stages {
+  stage('Build') {
+   steps {
+    echo "Running Build"
+    bat 'dir'
+   }
+  }
+  stage('Test') {
+   steps {
+    echo "Running Test"
+    bat 'echo Test Passed'
+   }
+  }
+ }
+}
+
+Save → Build Now → View Stage Output
